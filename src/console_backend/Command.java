@@ -1,12 +1,16 @@
 package console_backend;
 
 public enum Command {
-	SPAWNME("spawnme");
+	SPAWNME("spawnme",true, false), REPORTME("reportme", true, false), REPORTPARTY("reportparty", false, true);
 	
 	private String stringValue;
+	boolean onMe;
+	boolean onThem;
 	
-	Command(String stringValue) {
+	Command(String stringValue, boolean onme, boolean onthem) {
 		this.stringValue = stringValue;
+		this.onMe = onme;
+		this.onThem = onthem;
 	}
 	
 	@Override
@@ -26,6 +30,6 @@ public enum Command {
 	}
 	
 	public static boolean isValid(String string) {
-		return string.matches("(spawnme) [0-9]+");
+		return string.matches("(spawnme|reportme|reportparty) [0-9]+");
 	}
 }

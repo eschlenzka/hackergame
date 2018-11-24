@@ -3,11 +3,11 @@ package console_backend;
 import java.util.*;
 
 public class InputManager {
-	private LocalConsole localConsole;
+	private ConsoleLog console;
 	private List<GameProxy> proxies = new ArrayList<GameProxy>();
 	
-	public InputManager(LocalConsole localConsole) {
-		this.localConsole = localConsole;
+	public InputManager(ConsoleLog console) {
+		this.console = console;
 	}
 	
 	public void addProxy(GameProxy gp) {
@@ -23,13 +23,13 @@ public class InputManager {
 			
 			Command command = Command.identifyCommand(commandString);
 			
-			localConsole.log(command, checksum);
+			console.runCommand(command, checksum, 0);
 			
 			for(GameProxy gp: proxies) {
 				gp.execute(command, checksum);
 			}
 		} else {
-			localConsole.logError(input);
+			console.logError(input);
 		}
 	}
 }
