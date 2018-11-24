@@ -1,8 +1,9 @@
 package game_backend;
 
-import java.awt.KeyEventDispatcher;
-import java.awt.KeyboardFocusManager;
-import java.awt.event.KeyEvent;
+//import java.awt.KeyEventDispatcher;
+//import java.awt.KeyboardFocusManager;
+//import java.awt.event.KeyEvent;
+import java.util.*;
 
 public class GameLogic {
 	Player player;
@@ -16,8 +17,8 @@ public class GameLogic {
 		mainloop();
 	}
 	public void spawnEnemy(int x_pos, int y_pos, EnemyTypes enemyType){
-		
-		
+		Enemy e = new Enemy(x_pos,y_pos,enemyType);
+		enemies.add(e);
 	}
 	
 	private void mainloop() {
@@ -25,11 +26,11 @@ public class GameLogic {
 			// Test if enemy should be spawned (Proxy)
 			
 			// Get pressed keys (Graphics)
-			String pressedKeys = keys.getPressedButtons();
-			if (pressedKeys.contains('w'){
+//			String pressedKeys = keys.getPressedButtons();
+//			if (pressedKeys.contains('w'){}
 				
-			}
-				;
+			
+				
 			// Change position depending on pressed keys
 			// Be aware of boundaries!
 			
