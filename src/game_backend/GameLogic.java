@@ -59,7 +59,7 @@ public class GameLogic {
 			public void run() {
 				mainloop();
 			}
-		}, 0, 50);
+		}, 0, 40);
 	}
 	
 	public void spawn(){
@@ -82,14 +82,14 @@ public class GameLogic {
 			pl_y += playerVelocity;
 		if(isKeyPressed[3] == true)
 			pl_x += playerVelocity;
-		if (pl_x >= 0)
-			pl_x = 0;
-		if (pl_x <= Board.WIDTH)
-			pl_x = Board.WIDTH;
-		if (pl_y >= Board.HEIGHT)
-			pl_y = Board.HEIGHT;
-		if (pl_y <= 0)
-			pl_y = 0;
+//		if (pl_x >= 0)
+//			pl_x = 0;
+//		if (pl_x <= Board.WIDTH)
+//			pl_x = Board.WIDTH;
+//		if (pl_y >= Board.HEIGHT)
+//			pl_y = Board.HEIGHT;
+//		if (pl_y <= 0)
+//			pl_y = 0;
 		player.updatePosition(pl_x, pl_y);
 		gameBoard.update(enemies, player);
 
