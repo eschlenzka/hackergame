@@ -63,9 +63,11 @@ public class GameLogic {
 	}
 	
 	public void spawn(){
-		// TODO: random values, not at player
-		//int randomNum
-		Enemy e = new Enemy();
+		int randomY = ThreadLocalRandom.current().nextInt(100,Board.HEIGHT);
+		int randomX = ThreadLocalRandom.current().nextInt(100,Board.WIDTH);
+		randomY = randomY + player.getY() - 50 % Board.HEIGHT;
+		randomX = randomX + player.getX() - 50 % Board.HEIGHT;
+		Enemy e = new Enemy(randomX,randomY,EnemyTypes.DEFAULT);
 		enemies.add(e);
 	}
 	
@@ -90,11 +92,6 @@ public class GameLogic {
 			pl_y = 0;
 		player.updatePosition(pl_x, pl_y);
 		gameBoard.update(enemies, player);
-		// Test if enemy should be spawned (Proxy)
 
-
-			
-			
-		
 	}
 }
