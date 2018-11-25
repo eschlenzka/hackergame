@@ -16,6 +16,7 @@ public class GameLogic {
 		Board gameBoard = new Board();
 		GameLogic test = new GameLogic(gameBoard);
 	}
+	
 	public GameLogic(Board board) {
 		player = new Player(10, 10);
 		gameBoard = board;
@@ -54,7 +55,7 @@ public class GameLogic {
 			}
 				
 		};
-		
+		gameBoard.addKeyListener(k);
 		Timer timer = new Timer();
 		timer.schedule(new TimerTask() {
 			@Override
@@ -63,8 +64,9 @@ public class GameLogic {
 			}
 		}, 0, 1000);
 	}
-	public void spawnEnemy(int x_pos, int y_pos, EnemyTypes enemyType){
-		Enemy e = new Enemy(x_pos,y_pos,enemyType);
+	
+	public void spawn(){
+		Enemy e = new Enemy();
 		enemies.add(e);
 	}
 	

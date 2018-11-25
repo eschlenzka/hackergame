@@ -9,6 +9,11 @@ public class Enemy {
 	y_pos = y_spawn;
 	this.enemyType = enemyType;
 	}
+	Enemy(){
+		x_pos = 10;
+		y_pos = 10;
+		enemyType = EnemyTypes.DEFAULT;
+	}
 	public void updatePosition(int new_x,int new_y) {
 		x_pos = new_x;
 		y_pos = new_y;	
