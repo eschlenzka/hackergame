@@ -47,9 +47,12 @@ public class WindowOrganisator {
 		
 		board = new Board();
 		window.getContentPane().add(board.getPanel(), BorderLayout.CENTER);
-		
+		LocalConsole lc = new LocalConsole(textout);
 		ConsoleLog consoleLog = new ConsoleLog(new LocalGameProxy(board), lc);
-		
+		Thread t = new Receiver(new Server(consoleLog));
+		t.start();
+		RemoteGameProxy remoteGameProxy = new RemoteGameProxy();
+		consoleLog.addPartyMember(remoteGameProxy);
 		manager = new InputManager(consoleLog);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setSize(800, 700);

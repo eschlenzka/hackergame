@@ -41,6 +41,7 @@ public class ConsoleLog {
 		
 		localConsole.log(command);
 	}
+
 	
 	public void logChecksum(int index) {
 		localConsole.logChecksum(index, checksums.get(indexByUserIndex(index)));
