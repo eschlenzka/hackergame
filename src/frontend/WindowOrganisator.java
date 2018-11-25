@@ -8,7 +8,6 @@ import java.util.*;
 import javax.swing.*;
 
 import console_backend.*;
-import game_backend.GameLogic;
 
 public class WindowOrganisator {
 	JFrame window = new JFrame("Hacker Game");
