@@ -5,6 +5,7 @@ import java.awt.KeyboardFocusManager;
 import java.awt.event.*;
 import java.util.*;
 import frontend.*;
+import frontend.Board;
 public class GameLogic {
 	Player player;
 	List<Enemy> enemies = new ArrayList<Enemy>();
@@ -80,10 +81,10 @@ public class GameLogic {
 			pl_x += playerVelocity;
 		if (pl_x >= 0)
 			pl_x = 0;
-		if (pl_x <= WIDTH)
-			pl_x = WIDTH;
-		if (pl_y >= HEIGHT)
-			pl_y = HEIGHT;
+		if (pl_x <= Board.WIDTH)
+			pl_x = Board.WIDTH;
+		if (pl_y >= Board.HEIGHT)
+			pl_y = Board.HEIGHT;
 		if (pl_y <= 0)
 			pl_y = 0;
 		player.updatePosition(pl_x, pl_y);
