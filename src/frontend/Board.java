@@ -34,6 +34,9 @@ public class Board {
 		this.currentPlayer = player;
 		this.currentEnemies = enemies;
 		
+//		System.out.println(currentPlayer.getX());
+//		System.out.println(currentPlayer.getY());
+		
 		panel.invalidate();
 		panel.repaint();
 		panel.revalidate(); //löst paintComponent aus
@@ -50,10 +53,12 @@ public class Board {
 			
 			for(Enemy e: currentEnemies) {
 				g.drawRect(e.getX(), e.getY(), 10, 10);
+				g.fillRect(e.getX(), e.getY(), 10, 10);
 			}
 			
 			g.setColor(Color.GREEN);
 			g.drawRect(currentPlayer.getX(), currentPlayer.getY(), 10, 10);
+			g.fillRect(currentPlayer.getX(), currentPlayer.getY(), 10, 10);
 		}
 	}
 }
