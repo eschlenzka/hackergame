@@ -72,7 +72,6 @@ public class GameLogic {
 	}
 	
 	private void mainloop() {
-		System.out.print("HEllo");
 		int pl_x = player.getX();
 		int pl_y = player.getY();
 		if(isKeyPressed[0] == true)
