@@ -12,10 +12,6 @@ public class GameLogic {
 	KeyAdapter listener;
 	int playerVelocity = 3; //currently hard-coded!
 	boolean isKeyPressed[];
-	public static void main(String[] args) {
-		Board gameBoard = new Board();
-		GameLogic test = new GameLogic(gameBoard);
-	}
 	
 	public GameLogic(Board board) {
 		player = new Player(10, 10);
@@ -66,6 +62,7 @@ public class GameLogic {
 	}
 	
 	public void spawn(){
+		// TODO: random values, not at player
 		Enemy e = new Enemy();
 		enemies.add(e);
 	}
