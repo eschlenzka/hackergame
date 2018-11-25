@@ -23,6 +23,7 @@ public class GameLogic {
 			@Override
 			public void keyPressed(KeyEvent arg0) {
 				char pressed = arg0.getKeyChar();
+				System.out.println(pressed);
 				if(pressed == 'W') 
 					isKeyPressed[0] = true; 	
 				if(pressed == 'A')
@@ -36,6 +37,7 @@ public class GameLogic {
 			@Override
 			public void keyReleased(KeyEvent arg0) {
 				char released = arg0.getKeyChar();
+				System.out.println(released);
 				if(released == 'W') 
 					isKeyPressed[0] = false; 	
 				if(released == 'A')
