@@ -14,6 +14,8 @@ public class WindowOrganisator {
 	JTextArea textout = new JTextArea();
 	JTextField textin = new JTextField(30);
 	
+	JComponent focus = new JTextField("Focus!");
+	
 	Board board;
 	InputManager manager;
 	
@@ -28,6 +30,7 @@ public class WindowOrganisator {
 		
 		console.add(scroller, BorderLayout.CENTER);
 		console.add(textin, BorderLayout.SOUTH);
+		window.add(focus, BorderLayout.SOUTH);
 		
 		window.getContentPane().add(console, BorderLayout.EAST);
 		
@@ -40,7 +43,7 @@ public class WindowOrganisator {
 			}
 		});
 		
-		board = new Board();
+		board = new Board(focus);
 		window.getContentPane().add(board.getPanel(), BorderLayout.CENTER);
 		
 		ConsoleLog consoleLog = new ConsoleLog(new LocalGameProxy(board), lc);

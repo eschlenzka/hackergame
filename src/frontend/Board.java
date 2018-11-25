@@ -12,13 +12,14 @@ public class Board {
 	public static final int WIDTH = 400;
 	public static final int HEIGHT = 600;
 	
-	int counter=0;
+	private JComponent focus;
 	
 	List<Enemy> currentEnemies;
 	Player currentPlayer;
 	
-	public Board() {
+	public Board(JComponent focus) {
 		this.panel = new DrawPanel();
+		this.focus = focus;
 	}
 	
 	public JPanel getPanel() {
@@ -26,7 +27,7 @@ public class Board {
 	}
 	
 	public void addKeyListener(KeyListener k) {
-		panel.addKeyListener(k);
+		focus.addKeyListener(k);
 	}
 	
 	public void update(List<Enemy> enemies, Player player) {
