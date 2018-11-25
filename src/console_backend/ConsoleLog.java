@@ -43,7 +43,7 @@ public class ConsoleLog {
 	}
 	
 	public void logChecksum(int index) {
-		localConsole.logChecksum(index, indexByUserIndex(index));
+		localConsole.logChecksum(index, checksums.get(indexByUserIndex(index)));
 	}
 	
 	public int getChecksum(int index) {

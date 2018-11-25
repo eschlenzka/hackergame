@@ -1,22 +1,25 @@
 package frontend;
 
 import console_backend.Command;
+import javax.swing.*;
 
 public class LocalConsole {
-
-	public void log(Command command) {
-		// TODO Auto-generated method stub
-		
+	JTextArea textout;
+	
+	public LocalConsole(JTextArea textout) {
+		this.textout = textout;
 	}
 
-	public void logChecksum(int index, int indexByUserIndex) {
-		// TODO Auto-generated method stub
-		
+	public void log(Command command) {
+		textout.append("\n[Command] " + command.toString());
+	}
+
+	public void logChecksum(int index, int checksum) {
+		textout.append("\n[Checksum] für Befehl " + index + ": " + checksum); 
 	}
 
 	public void logError(String wrongInput) {
-		// TODO Auto-generated method stub
-		
+		textout.append("\n[Error] Fehlerhafte eingabe: " + wrongInput);
 	}
 
 }
