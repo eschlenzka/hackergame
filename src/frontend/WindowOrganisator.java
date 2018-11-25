@@ -7,10 +7,7 @@ import java.awt.event.KeyListener;
 import java.util.*;
 import javax.swing.*;
 
-import console_backend.ConsoleLog;
-import console_backend.GameProxy;
-import console_backend.InputManager;
-import console_backend.LocalGameProxy;
+import console_backend.*;
 import game_backend.GameLogic;
 
 public class WindowOrganisator {
@@ -47,7 +44,7 @@ public class WindowOrganisator {
 		});
 		
 		board = new Board(game);
-		manager = new InputManager(new ConsoleLog(new LocalGameProxy(new GameLogic(board)), new LocalConsole(textout)));
+		manager = new InputManager(new ConsoleLog(new LocalGameProxy(board), new LocalConsole(textout)));
 	}	
 	
 	public static void main(String[] args) {
