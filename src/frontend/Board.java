@@ -7,6 +7,8 @@ import game_backend.*;
 
 public class Board {
 	JPanel panel;
+	public static final int WIDTH = 400;
+	public static final int HEIGHT = 600;
 	
 	public Board(JPanel panel) {
 		this.panel = panel;
