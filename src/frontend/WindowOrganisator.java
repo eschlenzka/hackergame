@@ -14,7 +14,7 @@ public class WindowOrganisator {
 	JTextArea textout = new JTextArea();
 	JTextField textin = new JTextField(30);
 	
-	JComponent focus = new JTextField("Focus!");
+	JComponent focus = new JButton("Focus!");
 	
 	Board board;
 	InputManager manager;
