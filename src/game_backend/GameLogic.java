@@ -5,7 +5,7 @@ import java.awt.KeyboardFocusManager;
 import java.awt.event.*;
 import java.util.*;
 import frontend.*;
-import frontend.Board;
+import java.util.concurrent.ThreadLocalRandom;
 public class GameLogic {
 	Player player;
 	List<Enemy> enemies = new ArrayList<Enemy>();
@@ -64,6 +64,7 @@ public class GameLogic {
 	
 	public void spawn(){
 		// TODO: random values, not at player
+		//int randomNum
 		Enemy e = new Enemy();
 		enemies.add(e);
 	}
@@ -88,8 +89,7 @@ public class GameLogic {
 		if (pl_y <= 0)
 			pl_y = 0;
 		player.updatePosition(pl_x, pl_y);
-		//TODO: Submit new positions 
-		
+		gameBoard.update(enemies, player);
 		// Test if enemy should be spawned (Proxy)
 
 
