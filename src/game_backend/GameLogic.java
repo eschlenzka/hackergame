@@ -15,7 +15,7 @@ public class GameLogic {
 	boolean isKeyPressed[];
 	
 	public GameLogic(Board board) {
-		player = new Player(10, 10);
+		player = new Player(100, 100);
 		gameBoard = board;
 		isKeyPressed = new boolean[4];
 		KeyListener k = new KeyListener() {
@@ -23,26 +23,26 @@ public class GameLogic {
 			@Override
 			public void keyPressed(KeyEvent arg0) {
 				char pressed = arg0.getKeyChar();
-				if(pressed == 'W') 
+				if(pressed == 'w') 
 					isKeyPressed[0] = true; 	
-				if(pressed == 'A')
+				if(pressed == 'a')
 					isKeyPressed[1] = true; 
-				if(pressed == 'S')
+				if(pressed == 's')
 					isKeyPressed[2] = true; 
-				if(pressed == 'D')
+				if(pressed == 'd')
 					isKeyPressed[3] = true; 
 			}
 
 			@Override
 			public void keyReleased(KeyEvent arg0) {
 				char released = arg0.getKeyChar();
-				if(released == 'W') 
+				if(released == 'w') 
 					isKeyPressed[0] = false; 	
-				if(released == 'A')
+				if(released == 'a')
 					isKeyPressed[1] = false; 
-				if(released == 'S')
+				if(released == 's')
 					isKeyPressed[2] = false; 
-				if(released == 'D')
+				if(released == 'd')
 					isKeyPressed[3] = false;  
 			}
 
@@ -59,7 +59,7 @@ public class GameLogic {
 			public void run() {
 				mainloop();
 			}
-		}, 0, 1000);
+		}, 0, 40);
 	}
 	
 	public void spawn(){
@@ -82,14 +82,14 @@ public class GameLogic {
 			pl_y += playerVelocity;
 		if(isKeyPressed[3] == true)
 			pl_x += playerVelocity;
-		if (pl_x >= 0)
-			pl_x = 0;
-		if (pl_x <= Board.WIDTH)
-			pl_x = Board.WIDTH;
-		if (pl_y >= Board.HEIGHT)
-			pl_y = Board.HEIGHT;
-		if (pl_y <= 0)
-			pl_y = 0;
+//		if (pl_x >= 0)
+//			pl_x = 0;
+//		if (pl_x <= Board.WIDTH)
+//			pl_x = Board.WIDTH;
+//		if (pl_y >= Board.HEIGHT)
+//			pl_y = Board.HEIGHT;
+//		if (pl_y <= 0)
+//			pl_y = 0;
 		player.updatePosition(pl_x, pl_y);
 		gameBoard.update(enemies, player);
 

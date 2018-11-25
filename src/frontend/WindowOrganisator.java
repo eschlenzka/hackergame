@@ -11,12 +11,13 @@ import communicate.Receiver;
 import communicate.RemoteGameProxy;
 import communicate.Server;
 import console_backend.*;
-import game_backend.GameLogic;
 
 public class WindowOrganisator {
 	JFrame window = new JFrame("Hacker Game");
 	JTextArea textout = new JTextArea();
 	JTextField textin = new JTextField(30);
+	
+	JComponent focus = new JButton("Focus!");
 	
 	Board board;
 	InputManager manager;
@@ -32,6 +33,7 @@ public class WindowOrganisator {
 		
 		console.add(scroller, BorderLayout.CENTER);
 		console.add(textin, BorderLayout.SOUTH);
+		window.add(focus, BorderLayout.SOUTH);
 		
 		window.getContentPane().add(console, BorderLayout.EAST);
 		
@@ -45,7 +47,7 @@ public class WindowOrganisator {
 			}
 		});
 		
-		board = new Board();
+		board = new Board(focus);
 		window.getContentPane().add(board.getPanel(), BorderLayout.CENTER);
 		LocalConsole lc = new LocalConsole(textout);
 		ConsoleLog consoleLog = new ConsoleLog(new LocalGameProxy(board), lc);
