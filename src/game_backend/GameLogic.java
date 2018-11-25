@@ -63,10 +63,10 @@ public class GameLogic {
 	}
 	
 	public void spawn(){
-		int randomY = ThreadLocalRandom.current().nextInt(100,Board.HEIGHT);
-		int randomX = ThreadLocalRandom.current().nextInt(100,Board.WIDTH);
-		randomY = randomY + player.getY() - 50 % Board.HEIGHT;
-		randomX = randomX + player.getX() - 50 % Board.HEIGHT;
+		int randomY = ThreadLocalRandom.current().nextInt(100,Board.HEIGHT-10);
+		int randomX = ThreadLocalRandom.current().nextInt(100,Board.WIDTH-10);
+		randomY = (randomY + player.getY() - 50) % Board.HEIGHT-10;
+		randomX = (randomX + player.getX() - 50) % Board.WIDTH-10;
 		Enemy e = new Enemy(randomX,randomY,EnemyTypes.DEFAULT);
 		enemies.add(e);
 	}
@@ -82,14 +82,14 @@ public class GameLogic {
 			pl_y += playerVelocity;
 		if(isKeyPressed[3] == true)
 			pl_x += playerVelocity;
-//		if (pl_x >= 0)
-//			pl_x = 0;
-//		if (pl_x <= Board.WIDTH)
-//			pl_x = Board.WIDTH;
-//		if (pl_y >= Board.HEIGHT)
-//			pl_y = Board.HEIGHT;
-//		if (pl_y <= 0)
-//			pl_y = 0;
+		if (pl_x <= 0)
+			pl_x = 0;
+		if (pl_x >= Board.WIDTH-10)
+			pl_x = Board.WIDTH-10;
+		if (pl_y >= Board.HEIGHT-10)
+			pl_y = Board.HEIGHT-10;
+		if (pl_y <= 0)
+			pl_y = 0;
 		player.updatePosition(pl_x, pl_y);
 		gameBoard.update(enemies, player);
 
