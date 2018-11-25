@@ -59,7 +59,7 @@ public class GameLogic {
 			public void run() {
 				mainloop();
 			}
-		}, 0, 40);
+		}, 0, 20);
 	}
 	
 	public void spawn(){
