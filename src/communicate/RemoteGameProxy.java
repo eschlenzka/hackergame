@@ -10,6 +10,7 @@ public class RemoteGameProxy extends GameProxy {
             int port = 11111;
             java.net.Socket socket = new java.net.Socket(ip, port);
             c.write(socket,command,checksum);
+            socket.close();
         }catch (IOException e){
             e.printStackTrace();
         }

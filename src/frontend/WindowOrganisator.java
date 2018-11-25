@@ -7,6 +7,9 @@ import java.awt.event.KeyListener;
 import java.util.*;
 import javax.swing.*;
 
+import communicate.Receiver;
+import communicate.RemoteGameProxy;
+import communicate.Server;
 import console_backend.*;
 import game_backend.GameLogic;
 
@@ -34,7 +37,8 @@ public class WindowOrganisator {
 		window.getContentPane().add(game, BorderLayout.WEST);
 		window.getContentPane().add(console, BorderLayout.EAST);
 		
-		LocalConsole lc = new LocalConsole(textout);
+
+
 		textin.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {

@@ -12,7 +12,7 @@ public class Client{
                 new PrintWriter(
                         new OutputStreamWriter(
                                 socket.getOutputStream()));
-        printWriter.print(command.toString());
+        printWriter.print(command.toString() + "0" + Integer.valueOf(checksum).toString());
         printWriter.flush();
     }
 }
