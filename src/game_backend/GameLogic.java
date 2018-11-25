@@ -15,7 +15,7 @@ public class GameLogic {
 	boolean isKeyPressed[];
 	
 	public GameLogic(Board board) {
-		player = new Player(10, 10);
+		player = new Player(100, 100);
 		gameBoard = board;
 		isKeyPressed = new boolean[4];
 		KeyListener k = new KeyListener() {
@@ -23,28 +23,26 @@ public class GameLogic {
 			@Override
 			public void keyPressed(KeyEvent arg0) {
 				char pressed = arg0.getKeyChar();
-				System.out.println(pressed);
-				if(pressed == 'W') 
+				if(pressed == 'w') 
 					isKeyPressed[0] = true; 	
-				if(pressed == 'A')
+				if(pressed == 'a')
 					isKeyPressed[1] = true; 
-				if(pressed == 'S')
+				if(pressed == 's')
 					isKeyPressed[2] = true; 
-				if(pressed == 'D')
+				if(pressed == 'd')
 					isKeyPressed[3] = true; 
 			}
 
 			@Override
 			public void keyReleased(KeyEvent arg0) {
 				char released = arg0.getKeyChar();
-				System.out.println(released);
-				if(released == 'W') 
+				if(released == 'w') 
 					isKeyPressed[0] = false; 	
-				if(released == 'A')
+				if(released == 'a')
 					isKeyPressed[1] = false; 
-				if(released == 'S')
+				if(released == 's')
 					isKeyPressed[2] = false; 
-				if(released == 'D')
+				if(released == 'd')
 					isKeyPressed[3] = false;  
 			}
 
@@ -61,7 +59,7 @@ public class GameLogic {
 			public void run() {
 				mainloop();
 			}
-		}, 0, 1000);
+		}, 0, 50);
 	}
 	
 	public void spawn(){
