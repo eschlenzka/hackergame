@@ -47,7 +47,7 @@ public class WindowOrganisator {
 		});
 		
 		board = new Board(game);
-		manager = new InputManager(new ConsoleLog(new LocalGameProxy(new GameLogic()), new LocalConsole(textout)));
+		manager = new InputManager(new ConsoleLog(new LocalGameProxy(new GameLogic(board)), new LocalConsole(textout)));
 	}	
 	
 	public static void main(String[] args) {
