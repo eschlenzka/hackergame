@@ -15,9 +15,8 @@ import game_backend.GameLogic;
 
 public class WindowOrganisator {
 	JFrame window = new JFrame("Hacker Game");
-	JPanel game = new JPanel();
 	JTextArea textout = new JTextArea();
-	JTextField textin = new JTextField();
+	JTextField textin = new JTextField(30);
 	
 	Board board;
 	InputManager manager;
@@ -34,7 +33,6 @@ public class WindowOrganisator {
 		console.add(scroller, BorderLayout.CENTER);
 		console.add(textin, BorderLayout.SOUTH);
 		
-		window.getContentPane().add(game, BorderLayout.WEST);
 		window.getContentPane().add(console, BorderLayout.EAST);
 		
 
@@ -47,8 +45,15 @@ public class WindowOrganisator {
 			}
 		});
 		
-		board = new Board(game);
-		manager = new InputManager(new ConsoleLog(new LocalGameProxy(board), new LocalConsole(textout)));
+		board = new Board();
+		window.getContentPane().add(board.getPanel(), BorderLayout.CENTER);
+		
+		ConsoleLog consoleLog = new ConsoleLog(new LocalGameProxy(board), lc);
+		
+		manager = new InputManager(consoleLog);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setSize(800, 700);
+		window.setVisible(true);
 	}	
 	
 	public static void main(String[] args) {
